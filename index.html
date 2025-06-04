@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cajero Automático</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="atm-container">
+        <div class="screen">
+            <!-- Sección de Login -->
+            <div class="login-section active" id="loginSection">
+                <h1>🏧 CAJERO AUTOMÁTICO</h1>
+                <div class="input-group">
+                    <label for="cardNumber">Número de Tarjeta:</label>
+                    <input type="text" id="cardNumber" placeholder="Ingrese su número de tarjeta" maxlength="16">
+                </div>
+                <div class="input-group">
+                    <label for="pin">PIN:</label>
+                    <input type="password" id="pin" placeholder="Ingrese su PIN" maxlength="4">
+                </div>
+                <button class="btn" onclick="login()">Ingresar</button>
+                <div id="loginMessage"></div>
+            </div>
+
+            <!-- Menú Principal -->
+            <div class="menu-section" id="menuSection">
+                <h1>🏧 MENÚ PRINCIPAL</h1>
+                <div class="account-info">
+                    <h3>Bienvenido/a</h3>
+                    <p>Tarjeta: <span id="currentCard"></span></p>
+                    <p>Fecha: <span id="currentDate"></span></p>
+                </div>
+                <button class="btn" onclick="showOperation('balance')">💰 Consultar Saldo</button>
+                <button class="btn" onclick="showOperation('withdraw')">💸 Retirar Dinero</button>
+                <button class="btn" onclick="showOperation('deposit')">💳 Depositar Dinero</button>
+                <button class="btn" onclick="showOperation('transfer')">🔄 Transferir Dinero</button>
+                <button class="btn btn-danger" onclick="logout()">🚪 Salir</button>
+            </div>
+
+            <!-- Sección de Operaciones -->
+            <div class="operation-section" id="operationSection">
+                <h1 id="operationTitle">Operación</h1>
+                <div id="operationContent"></div>
+                <button class="btn btn-secondary" onclick="backToMenu()">← Volver al Menú</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
